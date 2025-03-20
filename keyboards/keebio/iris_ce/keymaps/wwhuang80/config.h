@@ -27,14 +27,3 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
-
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SFT_T(KC_T):
-           return 175;
-        case SFT_T(KC_N):
-           return 175;
-        default:
-            return g_tapping_term;
-    }
-}
