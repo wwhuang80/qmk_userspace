@@ -18,6 +18,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [5] = LAYOUT(QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGB_TOG, RGB_MOD, RGB_RMOD, KC_NO, KC_NO, QK_BOOT, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, BL_TOGG, BL_STEP, RGB_HUI, RGB_SAI, RGB_VAI, KC_TRNS, KC_TRNS, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_MSTP, KC_MPLY, KC_MUTE),
     [6] = LAYOUT(QK_BOOT, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, QK_BOOT, KC_TRNS, KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_F11, KC_F4, KC_F5, KC_F6, KC_SCRL, KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_TRNS, KC_TRNS, KC_F10, KC_F1, KC_F2, KC_F3, KC_PAUS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_APP, KC_SPC, KC_TAB, KC_NO, KC_NO, KC_NO)
 };
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',         
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',                        
+                  'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R'
+    );
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
