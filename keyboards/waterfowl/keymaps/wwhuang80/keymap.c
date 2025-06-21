@@ -1,6 +1,17 @@
 #include QMK_KEYBOARD_H
 
- enum layer_names {
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SFT_T(KC_T):
+           return 175;
+        case SFT_T(KC_N):
+           return 175;
+        default:
+            return TAPPING_TERM;
+    }
+};
+
+enum layer_names {
         _BASE,
 		_NAV,
 		_MOUSE,
@@ -9,9 +20,10 @@
 		_SYM,
 		_FUNC
     };
-    const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT(
-		 KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, LSFT_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LGUI_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_HYPR, KC_HYPR, KC_K, KC_H, KC_COMMA, KC_DOT, KC_SLASH, KC_MEH, LT(3, KC_ESC), LT(1, KC_SPC), LT(2, KC_TAB), LT(5, KC_BSPC), LT(4, KC_ENTER), LT(6, KC_DEL), KC_MEH
+		 KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_HYPR, KC_HYPR, KC_K, KC_H, KC_COMMA, KC_DOT, KC_SLASH, KC_MEH, LT(3, KC_ESC), LT(1, KC_SPC), LT(2, KC_TAB), LT(5, KC_BSPC), LT(4, KC_ENTER), LT(6, KC_DEL), KC_MEH
 	)
 ,
 	[_NAV] = LAYOUT(
@@ -40,22 +52,6 @@
 ,
     };
 
-#if __has_include("keymap.h")
-#    include "keymap.h"
-#endif
-
-
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SFT_T(KC_T):
-           return 175;
-        case SFT_T(KC_N):
-           return 175;
-        default:
-            return TAPPING_TERM;
-    }
-};
-
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
         'L', 'L', 'L', 'L', 'L',          'R', 'R', 'R', 'R', 'R',
@@ -70,4 +66,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+
+
 
