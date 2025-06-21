@@ -1,0 +1,73 @@
+#include QMK_KEYBOARD_H
+
+ enum layer_names {
+        _BASE,
+		_NAV,
+		_MOUSE,
+		_MEDIA,
+		_NUM,
+		_SYM,
+		_FUNC
+    };
+    const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+	[_BASE] = LAYOUT(
+		 KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, LSFT_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LGUI_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_HYPR, KC_HYPR, KC_K, KC_H, KC_COMMA, KC_DOT, KC_SLASH, KC_MEH, LT(3, KC_ESC), LT(1, KC_SPC), LT(2, KC_TAB), LT(5, KC_BSPC), LT(4, KC_ENTER), LT(6, KC_DEL), KC_MEH
+	)
+,
+	[_NAV] = LAYOUT(
+		 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT, KC_UNDO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_INS, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BSPC, KC_ENTER, KC_DEL, KC_TRNS
+	)
+,
+	[_MOUSE] = LAYOUT(
+		 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT, KC_UNDO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MS_BTN3, MS_BTN1, MS_BTN2, KC_TRNS
+	)
+,
+	[_MEDIA] = LAYOUT(
+		 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, BL_TOGG, BL_STEP, RGB_HUI, RGB_SAI, RGB_VAI, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, KC_MPRV, KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_MNXT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MEDIA_STOP, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_MUTE, KC_TRNS
+	)
+,
+	[_NUM] = LAYOUT(
+		 KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_QUOTE, KC_4, KC_5, KC_6, KC_EQL, KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_GRAVE, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_DOT, KC_0, KC_MINS, KC_NO, KC_NO, KC_NO, KC_TRNS
+	)
+,
+	[_SYM] = LAYOUT(
+		 KC_LCBR, KC_AMPERSAND, KC_ASTR, KC_LPRN, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_DQT, KC_DLR, KC_PERCENT, KC_CIRC, KC_PLUS, KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_TILDE, KC_1, KC_2, KC_3, KC_PIPE, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LPRN, KC_RPRN, KC_UNDERSCORE, KC_NO, KC_NO, KC_NO, KC_TRNS
+	)
+,
+	[_FUNC] = LAYOUT(
+		 KC_F12, KC_F7, KC_F8, KC_F9, KC_PRINT_SCREEN, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F11, KC_F4, KC_F5, KC_F6, KC_SCRL, KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_F10, KC_EXLM, KC_AT, KC_HASH, KC_PAUSE, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_APP, KC_SPC, KC_TAB, KC_NO, KC_NO, KC_NO, KC_TRNS
+	)
+,
+    };
+
+#if __has_include("keymap.h")
+#    include "keymap.h"
+#endif
+
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SFT_T(KC_T):
+           return 175;
+        case SFT_T(KC_N):
+           return 175;
+        default:
+            return TAPPING_TERM;
+    }
+};
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L',          'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',          'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L','L', 'L', 'R', 'R', 'R', 'R', 'R',
+             'L', 'L', 'L', 'L',          'R', 'R', 'R', 'R'
+    );
+
+
+#if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+
+};
+#endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+
