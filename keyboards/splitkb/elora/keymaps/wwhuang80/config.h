@@ -27,3 +27,9 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
+
+// Copyright 2024 splitkb.com (support@splitkb.com)
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+// Myriad boilerplate
+#define MYRIAD_ENABLE
