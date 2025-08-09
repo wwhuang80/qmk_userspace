@@ -6,3 +6,9 @@ CAPS_WORD_ENABLE = yes
 KEY_OVERRIDE_ENABLE = no
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = cirque_pinnacle_spi
+QUANTUM_PAINTER_ENABLE = yes
+QUANTUM_PAINTER_DRIVERS += st7789_spi
+
+SRC += chordmap.c display.c
+POST_CONFIG_H += display.h
+
