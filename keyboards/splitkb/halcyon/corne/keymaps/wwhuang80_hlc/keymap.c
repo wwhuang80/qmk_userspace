@@ -73,6 +73,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
-ifdef OTHER_KEYMAP_C
+#ifdef OTHER_KEYMAP_C
 #    include OTHER_KEYMAP_C
 #endif // OTHER_KEYMAP_C
